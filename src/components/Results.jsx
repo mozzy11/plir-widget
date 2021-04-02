@@ -8,8 +8,8 @@ import ResultsCard from './ResultsCard'
 
 let base64 = require('base-64');
 
-let username = 'hapi';
-let password = 'hapi123';
+let username = window.hapiUser;
+let password = window.hapiPass;
 
 let url = "";
 let headers = new Headers();
@@ -39,7 +39,7 @@ export default function Results(){
     let [results, setResults] = useState('')
     let [error, setError] = useState('')
 
-     url =  "http://localhost:8899/fhir/Measure/"+ id+ "/$evaluate-measure?periodStart="+ start+"&periodEnd="+reportingDate +"&_format=json"
+     url = window.fhirBaseUrl + "/Measure/"+ id+ "/$evaluate-measure?periodStart="+ start+"&periodEnd="+reportingDate +"&_format=json";
 
     let exportJSON = () => {
         const blob = new Blob([JSON.stringify(results)], { type: "application/json" });

@@ -12,13 +12,13 @@ export default function ResultsCard({results, reportingPeriod}) {
                 
                 <p>From: <b>{reportingPeriod.start}</b>;  To: <b>{reportingPeriod.end}</b></p>
                 <br/>
-
+               <table>
+                   <tbody>
                 {results.group[0].population.map((population) => {
-                   return <p key={String(population.code.coding[0].code)}>{population.code.coding[0].display}: {population.count}</p>
+                   return <tr key={String(population.code.coding[0].code)}  style={{width: "100px" ,height : "20px"}}><td style={{width: "200px", border: "1px solid black" ,textAlign : "center"}}>{population.code.coding[0].code}</td><td style={{width: "200px" ,border: "1px solid black" , textAlign : "center"}}>{population.count}</td></tr>
                 })}
-            
-                <br/>
-                <hr/>
+                 </tbody>
+                </table>
                 <h5>
 					Measure Score: {results.group[0].measureScore ? (results.group[0].measureScore.value).toFixed(2):  "0" }
 				</h5>

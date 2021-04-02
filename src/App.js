@@ -6,16 +6,15 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 function App() {
 
   return (
-    <div className="bx--grid">
-      <div className="bx--row">
-        <div className="bx--col-lg-4 bx--col-md-4 bx--col-sm-4">
+    
+
+        <div style={{ height :"500px" ,width : "400px" ,position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)'}}>
           <Router>
               <Route exact path="/" component={Selector} />
               <Route path="/results/:id" children={<Results/>} />
           </Router>
         </div>
-      </div>
-    </div>
   );
 }
 

@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Dropdown, Button, DatePicker, DatePickerInput } from 'carbon-components-react'
 
-let url = 'http://localhost:8899/fhir/Measure?_format=json'
 
+window.fhirBaseUrl = (typeof window.fhirBaseUrl === 'undefined') ? "http://localhost:8899/fhir" :  window.fhirBaseUrl;
+window.hapiUser = (typeof window.hapiUser === 'undefined') ? "hapi" :  window.hapiUser;
+window.hapiPass = (typeof window.hapiPass === 'undefined') ? "hapi123" :  window.hapiPass;
+
+let url = window.fhirBaseUrl + '/Measure?_format=json';
+let username = window.hapiUser;
+let password = window.hapiPass;
 let base64 = require('base-64');
-
-let username = 'hapi';
-let password = 'hapi123';
 
 let headers = new Headers();
 
